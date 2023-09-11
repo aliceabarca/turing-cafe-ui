@@ -6,15 +6,15 @@ import React, { useEffect, useState } from 'react';
 
 function App() {
 
-  const data = [
-    {
-      id: 1,
-      name: "Christie",
-      date: "12/29",
-      time: "7:00",
-      number: 12
-      }
-  ]
+  // const data = [
+  //   {
+  //     id: 1,
+  //     name: "Christie",
+  //     date: "12/29",
+  //     time: "7:00",
+  //     number: 12
+  //     }
+  // ]
   const [reservation, setReservation] = useState([])
 
   function customerAddRes(newRes) {
@@ -22,7 +22,10 @@ function App() {
   }
 
   useEffect(() => {
-    getFetch()
+    fetch('http://localhost:3001/api/v1/reservations')
+    .then(response => response.json())
+    .then(data => setReservation(data))
+    .catch(err => err.message('Could Not Find Reservations'))
   }, [])
 
   return (
