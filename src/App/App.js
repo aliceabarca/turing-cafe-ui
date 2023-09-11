@@ -1,7 +1,8 @@
+import { getFetch } from '../api';
 import Form from '../components/Form/Form';
 import Reservation from '../components/Reservation/Reservation';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function App() {
 
@@ -19,7 +20,11 @@ function App() {
   function customerAddRes(newRes) {
     setReservation([...reservation, newRes])
   }
-  
+
+  useEffect(() => {
+    getFetch()
+  }, [])
+
   return (
     <div className="App">
       <h1 className='app-title'>Turing Cafe Reservations</h1>
