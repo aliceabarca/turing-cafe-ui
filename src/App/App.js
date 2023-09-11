@@ -1,20 +1,9 @@
-import { getFetch } from '../api';
 import Form from '../components/Form/Form';
 import Reservation from '../components/Reservation/Reservation';
 import './App.css';
 import React, { useEffect, useState } from 'react';
 
 function App() {
-
-  // const data = [
-  //   {
-  //     id: 1,
-  //     name: "Christie",
-  //     date: "12/29",
-  //     time: "7:00",
-  //     number: 12
-  //     }
-  // ]
   const [reservation, setReservation] = useState([])
 
   function customerAddRes(newRes) {
